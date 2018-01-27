@@ -11,13 +11,13 @@
 
 [node name="map_1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 513, 298 )
+transform/pos = Vector2( 511, 300 )
 texture = ExtResource( 1 )
 
 [node name="enemy" type="Sprite" parent="."]
 
-transform/pos = Vector2( 441.945, 353.927 )
-transform/scale = Vector2( 2.695, 2.89362 )
+transform/pos = Vector2( 415.194, 323.077 )
+transform/scale = Vector2( 1.35, 1.4 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -21.3156, -28.6585 )
@@ -26,8 +26,8 @@ script/script = ExtResource( 3 )
 
 [node name="player" type="Sprite" parent="."]
 
-transform/pos = Vector2( 382, 289.196 )
-transform/scale = Vector2( 2.44828, 2.60825 )
+transform/pos = Vector2( 392.219, 291.466 )
+transform/scale = Vector2( 1.22, 1.3 )
 texture = ExtResource( 4 )
 centered = false
 script/script = ExtResource( 5 )
@@ -58,7 +58,7 @@ shadow/item_mask = 1
 
 [node name="Light2D1" type="Light2D" parent="."]
 
-transform/pos = Vector2( 270.367, 313.572 )
+transform/pos = Vector2( 285.879, 295.843 )
 transform/scale = Vector2( -4.23495, -4.97039 )
 enabled = true
 editor_only = false

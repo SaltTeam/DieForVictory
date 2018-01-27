@@ -20,7 +20,7 @@ texture = ExtResource( 1 )
 
 transform/pos = Vector2( 391, 295 )
 transform/rot = -0.263174
-transform/scale = Vector2( 2.44828, 2.60825 )
+transform/scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 2 )
 centered = false
 flip_h = true
@@ -30,7 +30,7 @@ script/script = ExtResource( 3 )
 
 transform/pos = Vector2( 401.841, 290.777 )
 transform/rot = -0.263174
-transform/scale = Vector2( 2.44828, 2.60825 )
+transform/scale = Vector2( 1.25, 1.3 )
 texture = ExtResource( 4 )
 centered = false
 script/script = ExtResource( 5 )
