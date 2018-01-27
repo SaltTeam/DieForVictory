@@ -1,6 +1,6 @@
 extends Sprite
 
-onready var kick_img = load("res://sprites/adon_kick.png")
+onready var kick_img = load("res://textures/adon_kick.tex")
 
 func _ready():
 	set_process_input(true)
