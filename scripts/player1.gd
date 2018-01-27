@@ -53,7 +53,7 @@ func take_damage(damage):
 		if global.life <= 0:
 			set_texture(load("res://sprites/adon_ko.png"))
 			dead = true
-			global.next_level = "res://scenes/test_export_var.scn"
+			global.next_level = "res://scenes/test_export_var.tscn"
 			global.nb_looses += 1
 			global.end_level()
 	else:
