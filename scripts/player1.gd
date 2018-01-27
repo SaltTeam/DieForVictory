@@ -34,7 +34,7 @@ func _process(delta):
 		set_texture(load("res://sprites/adon_stand.png"))
 
 func do_jab():
-	pass
+	print("jab")
 
 func do_kick():
-	pass
+	print("kick")
