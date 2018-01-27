@@ -12,16 +12,16 @@ func _ready():
 func _process(delta):
 	timer += delta
 	if pressButton == false:
-		if Input.is_key_pressed(KEY_A):
+		if Input.is_action_pressed("player1_guard"):
 			guard = true
 			set_texture(load("res://sprites/adon_guard.png"))
-		if Input.is_key_pressed(KEY_Z):
+		if Input.is_action_pressed("player1_punch"):
 			guard = false
 			pressButton = true
 			resetTime = global.jab_time
 			timer = 0
 			set_texture(load("res://sprites/adon_jab.png"))
-		if Input.is_key_pressed(KEY_E):
+		if Input.is_action_pressed("player1_kick"):
 			guard = false
 			pressButton = true
 			resetTime = global.kick_time
