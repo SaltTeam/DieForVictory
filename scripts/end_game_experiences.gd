@@ -8,10 +8,10 @@ func actualize_experience():
 	earned.set_bbcode("Expérience acquise: " + str(round(experience)) + " exp")
 
 func actualize_life():
-	get_node("Panel/VBox/HBox_life/text").set_bbcode("Life (" + str(global.life) + ") :")
+	get_node("Panel/VBox/HBox_life/text").set_bbcode("Life (" + str(global.max_life) + ") :")
 
 func actualize_guard_capacity():
-	get_node("Panel/VBox/HBox_guard_capacity/text1").set_bbcode("Guard cap (" + str(global.guard_capacity) + ") :")
+	get_node("Panel/VBox/HBox_guard_capacity/text1").set_bbcode("Guard cap (" + str(global.max_guard_capacity) + ") :")
 
 func actualize_guard_time():
 	get_node("Panel/VBox/HBox_guard_time/text2").set_bbcode("Guard cd (" + str(global.guard_time) + ") :")
@@ -31,10 +31,7 @@ func actualize_kick_time():
 func _ready():
 	set_fixed_process(true)
 	
-	global.nb_looses = 9
-	global.nb_wins = 3
-	
-	experience = global.experience + rand_range(global.nb_looses * -global.EXPERIENCE_PER_LOOSE, global.nb_wins * global.EXPERIENCE_PER_WIN) + 1000
+	experience = global.experience + rand_range(global.nb_looses * -global.EXPERIENCE_PER_LOOSE, global.nb_wins * global.EXPERIENCE_PER_WIN)
 	actualize_experience()
 	get_node("Panel/VBox/Earned_message").set_bbcode("Waouh ! Descendance exceptionnelle !")
 	
@@ -65,14 +62,14 @@ func _fixed_process(delta):
 
 func _on_add_pressed():
 	if experience > global.LIFE_COST:
-		global.life += 1
+		global.max_life += 1
 		experience -= global.LIFE_COST
 		actualize_experience()
 		actualize_life()
 
 func _on_add1_pressed():
 	if experience > global.GUARD_CAPACITY_COST:
-		global.guard_capacity += 1
+		global.max_guard_capacity += 1
 		experience -= global.GUARD_CAPACITY_COST
 		actualize_experience()
 		actualize_guard_capacity()
@@ -114,4 +111,4 @@ func _on_add6_pressed():
 
 func _on_valider_pressed():
 	global.experience = experience
-	print("validé!")
+	get_tree().change_scene("res://scenes/fight.tscn")
