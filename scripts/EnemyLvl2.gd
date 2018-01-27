@@ -12,6 +12,7 @@ var jabDamages = 10
 var kickDamages = 15
 var resetTime = 0
 var timer = 0
+var dead = false
 
 var pattern = [JAB,JAB,HIGHKICK,GUARD]
 var patternValue = 0
@@ -39,6 +40,11 @@ func _process(delta):
 		patternValue = 0
 	else:
 		patternValue += 1
-		
-func take_damages(damages):
-	pass
+
+func take_damage(damage):
+	life -= damage
+	if life <= 0:
+		dead = true
+		set_texture(load("res://sprites/retsu_ko.png"))
+		global.next_level = "res://scenes/test_export_var.tscn"
+		global.end_level()

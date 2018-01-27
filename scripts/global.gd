@@ -47,6 +47,6 @@ func init_global():
 	guard_capacity = max_guard_capacity
 
 func end_level():
-	var scene = load("res://scenes/ContinueScreen.scn")
+	var scene = load("res://scenes/ContinueScreen.tscn")
 	var node = scene.instance()
-	get_tree().add_child(node)
+	get_tree().get_root().add_child(load("res://scenes/ContinueScreen.tscn").instance())

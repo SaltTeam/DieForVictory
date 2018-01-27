@@ -37,6 +37,9 @@ func _process(delta):
 			resetTime = 0
 			timer = 0
 			set_texture(load("res://sprites/adon_stand.png"))
+	if dead or get_parent().get_node("enemy").dead:
+		if Input.is_key_pressed(KEY_A):
+			get_tree().change_scene(global.next_level)
 
 func do_jab():
 	get_parent().get_node("enemy").take_damage(global.jab_damage)

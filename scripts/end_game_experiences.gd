@@ -34,7 +34,7 @@ func _ready():
 	global.nb_looses = 9
 	global.nb_wins = 3
 	
-	experience = global.experience + rand_range(global.nb_looses * -global.EXPERIENCE_PER_LOOSE, global.nb_wins * global.EXPERIENCE_PER_WIN) + 1000
+	experience = global.experience + rand_range(global.nb_looses * -global.EXPERIENCE_PER_LOOSE, global.nb_wins * global.EXPERIENCE_PER_WIN)
 	actualize_experience()
 	get_node("Panel/VBox/Earned_message").set_bbcode("Waouh ! Descendance exceptionnelle !")
 	
