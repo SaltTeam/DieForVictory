@@ -16,6 +16,13 @@ func _on_HistoireButton_pressed():
 	var node = scene.instance()
 	add_child(node)
 	pass
+
+
+func _on_VersusButton_pressed():
+	var scene = load(\"res://scenes//splash.tscn\")
+	var node = scene.instance()
+	add_child(node)
+	pass
 "
 
 [node name="Panel" type="Panel"]
@@ -65,5 +72,7 @@ params/resize_mode = 0
 params/stretch_mode = 0
 
 [connection signal="pressed" from="HistoireButton" to="." method="_on_HistoireButton_pressed"]
+
+[connection signal="pressed" from="VersusButton" to="." method="_on_VersusButton_pressed"]
 
 
