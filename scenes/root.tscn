@@ -20,7 +20,8 @@ func _input(event):
 
 [node name="adon_stand" type="Sprite" parent="."]
 
-transform/pos = Vector2( 123.842, 535.263 )
+transform/pos = Vector2( 182.71, 440.774 )
+transform/scale = Vector2( 2.96611, 2.96611 )
 texture = ExtResource( 1 )
 script/script = SubResource( 1 )
 
