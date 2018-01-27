@@ -8,8 +8,8 @@ enum HIT{
 
 onready var global = get_node("/root/global")
 var life= 50
-var jabDamages = 10
-var kickDamages = 15
+var jab_damage = 10
+var kick_damage = 15
 var resetTime = 0
 var timer = 0
 var dead = false
@@ -27,9 +27,11 @@ func _process(delta):
 			if (pattern[patternValue] == JAB):
 				resetTime = global.BASE_JAB_TIME
 				set_texture(load("res://sprites/retsu_jab.png"))
+				do_jab()
 			elif (pattern[patternValue] == HIGHKICK):
 				resetTime = global.BASE_KICK_TIME
 				set_texture(load("res://sprites/retsu_kick.png"))
+				do_kick()
 			else:
 				resetTime = global.BASE_GUARD_TIME
 				set_texture(load("res://sprites/retsu_guard.png"))
@@ -47,7 +49,13 @@ func take_damage(damage):
 	if life <= 0:
 		dead = true
 		set_texture(load("res://sprites/retsu_ko.png"))
-		global.next_level = "res://scenes/test_export_var.tscn"
+		global.next_level = "res://scenes/Stage3.tscn"
 		global.experience += 20
 		global.nb_wins += 1
 		global.end_level()
+
+func do_jab():
+	get_parent().get_node("player").take_damage(jab_damage)
+
+func do_kick():
+	get_parent().get_node("player").take_damage(kick_damage)
