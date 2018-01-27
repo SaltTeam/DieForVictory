@@ -1,9 +1,13 @@
 extends Sprite
 
+onready var global = get_node("/root/global")
 var pressButton  = false
 var resetTime = 0
 var timer = 0
 var guard  = false
+
+func _ready():
+	set_process(true)
 
 func _process(delta):
 	timer += delta
@@ -14,13 +18,13 @@ func _process(delta):
 		if Input.is_key_pressed(KEY_Z):
 			guard = false
 			pressButton = true
-			resetTime = 0.2
+			resetTime = global.jab_time
 			timer = 0
 			set_texture(load("res://sprites/adon_jab.png"))
 		if Input.is_key_pressed(KEY_E):
 			guard = false
 			pressButton = true
-			resetTime = 0.4
+			resetTime = global.kick_time
 			timer = 0
 			set_texture(load("res://sprites/adon_kick.png"))
 	if (timer > resetTime && guard == false):
@@ -29,6 +33,8 @@ func _process(delta):
 		timer = 0
 		set_texture(load("res://sprites/adon_stand.png"))
 
+func do_jab():
+	pass
 
-func _ready():
-	set_process(true)
+func do_kick():
+	pass
