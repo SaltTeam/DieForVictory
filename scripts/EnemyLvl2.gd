@@ -21,25 +21,26 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	timer += delta
-	if (timer > 1):
-		if (pattern[patternValue] == JAB):
-			resetTime = global.BASE_JAB_TIME
-			set_texture(load("res://sprites/retsu_jab.png"))
-		elif (pattern[patternValue] == HIGHKICK):
-			resetTime = global.BASE_KICK_TIME
-			set_texture(load("res://sprites/retsu_kick.png"))
+	if !dead and !get_parent().get_node("player").dead:
+		timer += delta
+		if (timer > 1):
+			if (pattern[patternValue] == JAB):
+				resetTime = global.BASE_JAB_TIME
+				set_texture(load("res://sprites/retsu_jab.png"))
+			elif (pattern[patternValue] == HIGHKICK):
+				resetTime = global.BASE_KICK_TIME
+				set_texture(load("res://sprites/retsu_kick.png"))
+			else:
+				resetTime = global.BASE_GUARD_TIME
+				set_texture(load("res://sprites/retsu_guard.png"))
+			timer = 0
+		if (timer > resetTime):
+			set_texture(load("res://sprites/retsu_stand.png"))
+			 
+		if (patternValue == 3):
+			patternValue = 0
 		else:
-			resetTime = global.BASE_GUARD_TIME
-			set_texture(load("res://sprites/retsu_guard.png"))
-		timer = 0
-	if (timer > resetTime):
-		set_texture(load("res://sprites/retsu_stand.png"))
-		 
-	if (patternValue == 3):
-		patternValue = 0
-	else:
-		patternValue += 1
+			patternValue += 1
 
 func take_damage(damage):
 	life -= damage
@@ -47,4 +48,6 @@ func take_damage(damage):
 		dead = true
 		set_texture(load("res://sprites/retsu_ko.png"))
 		global.next_level = "res://scenes/test_export_var.tscn"
+		global.experience += 20
+		global.nb_wins += 1
 		global.end_level()

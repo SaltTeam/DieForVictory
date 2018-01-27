@@ -35,6 +35,8 @@ func take_damage(damage):
 		dead = true
 		set_texture(load("res://sprites/joe_ko.png"))
 		global.next_level = "res://scenes/Stage2.tscn"
+		global.nb_wins += 1
+		global.experience += 10
 		global.end_level()
 
 func do_jab():
