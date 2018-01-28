@@ -7,9 +7,9 @@ enum HIT{
 }
 
 onready var global = get_node("/root/global")
-var life= 2000
-var jab_damage = 600
-var kick_damage = 850
+var life= 1000
+var jab_damage = 300
+var kick_damage = 550
 var resetTime = 0
 var timer = 0
 var dead = false
