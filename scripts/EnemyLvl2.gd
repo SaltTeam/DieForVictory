@@ -49,7 +49,7 @@ func take_damage(damage):
 	if life <= 0:
 		dead = true
 		set_texture(load("res://sprites/retsu_ko.png"))
-		global.next_level = "res://scenes/Stage3.tscn"
+		global.next_level = "res://scenes/Stage4.tscn"
 		global.experience += 20
 		global.nb_wins += 1
 		global.end_level()
