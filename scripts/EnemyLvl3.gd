@@ -49,7 +49,7 @@ func take_damage(damage):
 	if life <= 0:
 		dead = true
 		set_texture(load("res://sprites/sagat_ko.png"))
-		global.next_level = "res://scenes/test_export_var.tscn"
+		global.next_level = "res://scenes/Win.tscn"
 		global.experience += 30
 		global.nb_wins += 1
 		global.end_level()
